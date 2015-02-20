@@ -1,4 +1,4 @@
-import random  # needed for shuffling a Deck
+import random  # needed for shuffling a Deck...
 
 class Card(object):
     #the card has a suit which is one of 'S','C','H' or 'D'
