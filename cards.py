@@ -7,29 +7,28 @@ class Card(object):
     def __init__(self, r, s):
         #implement
         #where r is the rank, s is suit
-        return NotImplementedError
+        self.rank = r
+        self.suit = s
 
     def __str__(self):
-        return 'this'
+        return 'this is '+ str(self.rank) + str(self.suit)
 
     def get_rank(self):
-        return self.r
+        return self.rank
 
     def get_suit(self):
-        return 0
+        return self.suit
 
 class Deck():
     """Denote a deck to play cards with"""
-     
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-        #correct the code below
-        self.__deck = []
+        self.deck = [ ]
 
     def shuffle(self):
         """Shuffle the deck"""
-        random.shuffle(self.__deck)
+        random.shuffle(self.deck)
 
     def get_deck(self):
         raise NotImplementedError
