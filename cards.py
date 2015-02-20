@@ -24,7 +24,15 @@ class Deck():
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-        self.deck = [ ]
+        self.deck = []
+        for rank in range(2:11):
+            for suit in ['h','c','d','s']:
+                card = Card(rank, suit)
+                self.deck.append(card)
+        for rank in ['j', 'q', 'k', 'a']:
+            for suit in ['h', 'c' , 'd' , 's']:
+                card = Card(rank, suit)
+                self.deck.append(card)               
 
     def shuffle(self):
         """Shuffle the deck"""
@@ -36,11 +44,15 @@ class Deck():
     def deal(self):
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        raise NotImplementedError
+        return self.deck.pop
+        ###raise NotImplementedError   
     
     def __str__(self):
         """Represent the whole deck as a string for printing -- very useful during code development"""
        #the deck is a list of cards
        #this function just calls str(card) for each card in list
-       # put a '\n' between them 
+       # put a '\n' between them
+
+def main():
+    
 
