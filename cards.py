@@ -1,4 +1,6 @@
-import random  # needed for shuffling a Deck...
+#author - Yike Chen and Yejia Li
+
+import random  # needed for shuffling a Deck
 
 class Card(object):
     #the card has a suit which is one of 'S','C','H' or 'D'
@@ -19,16 +21,18 @@ class Card(object):
     def get_suit(self):
         return self.suit
 
+
 class Deck():
     """Denote a deck to play cards with"""
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-        self.deck = [ ]
+        self.__deck = [  ]
+        
 
     def shuffle(self):
         """Shuffle the deck"""
-        random.shuffle(self.deck)
+        random.shuffle(self.__deck)
 
     def get_deck(self):
         raise NotImplementedError
@@ -42,5 +46,10 @@ class Deck():
         """Represent the whole deck as a string for printing -- very useful during code development"""
        #the deck is a list of cards
        #this function just calls str(card) for each card in list
-       # put a '\n' between them 
+       # put a '\n' between them
 
+
+def main():
+    for i in range(1,13):
+            card = [str(i)+'S',str(i)+'C',str(i)+'H',str(i)+'D']
+            Deck.extend(card)
