@@ -8,6 +8,11 @@ class Test_cards(unittest.TestCase):
 
     def setUp(self):
         self.card = Card(1,'S')
+        self.deck = Deck()
+
+    def test_init(self):
+        self.assertEqual(self.card.rank,1)
+        self.assertEqual(self.card.suit,'S')
         
     def test_get_rank(self):
         rank = Card.get_rank(self.card)
@@ -17,7 +22,12 @@ class Test_cards(unittest.TestCase):
         suit = Card.get_suit (self.card)
         self.assertEqual(suit,'S')
 
-    def 
+
+    def test_add_card(self):
+        deck = self.deck.add_card(self.card)
+        print self.deck
+        self.assertTrue('1S' in self.deck)
+
     
 
 

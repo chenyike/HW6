@@ -9,8 +9,8 @@ class Card(object):
     def __init__(self, r, s):
         #implement
         #where r is the rank, s is suit
-        self.rank = r
-        self.suit = s
+        self.rank = str(r)
+        self.suit = str(s)
 
     def __str__(self):
         return 'this is '+ str(self.rank) + str(self.suit)
@@ -27,15 +27,22 @@ class Deck():
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-        self.__deck = [  ]
-        
+        self.__deck = []
+        for rank in range(2,11):
+            for suit in ['H','C','D','S']:
+                card = Card(rank, suit)
+                self.__deck.append(card)
+        for rank in ['J', 'Q', 'K', 'A']:
+            for suit in ['H', 'C' , 'D' , 'S']:
+                card = Card(rank, suit)
+                self.__deck.append(card)
 
     def shuffle(self):
         """Shuffle the deck"""
         random.shuffle(self.__deck)
 
     def get_deck(self):
-        raise NotImplementedError
+        return self.__deck
 
     def deal(self):
         # get the last card in the deck
@@ -47,9 +54,18 @@ class Deck():
        #the deck is a list of cards
        #this function just calls str(card) for each card in list
        # put a '\n' between them
-
+        output_string = ''
+        output_string += 'deck is listed below: \n'
+        length = len(self.__deck)
+        for card in self.__deck:
+            output_string += str(card.rank) +card.suit + '\n'
+        return output_string
 
 def main():
-    for i in range(1,13):
-            card = [str(i)+'S',str(i)+'C',str(i)+'H',str(i)+'D']
-            Deck.extend(card)
+    deck=Deck()
+    print deck
+    deck.shuffle()
+    print deck
+
+if __name__ =="__main__":
+    main()
