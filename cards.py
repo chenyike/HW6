@@ -47,8 +47,9 @@ class Deck():
     def deal(self):
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        raise NotImplementedError
-    
+        return self.__deck(-1)
+
+            
     def __str__(self):
         """Represent the whole deck as a string for printing -- very useful during code development"""
        #the deck is a list of cards
@@ -66,6 +67,8 @@ def main():
     print deck
     deck.shuffle()
     print deck
+    print deck.deal()
+    
 
 if __name__ =="__main__":
     main()
