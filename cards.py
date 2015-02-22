@@ -1,88 +1,39 @@
-#author - Yike Chen and Yejia Li
+def test_deal(self):
+        # get the last card from the pile
+        get_deck = self.deck.get_deck()
+        last_card = get_deck[-1].rank+get_deck[-1].suit
+def test_deal(self):
+        # get the last card from the pile
+       rom cards import *
 
-import random  # needed for shuffling a Deck
+class Solitaire(object):
 
-class Card(object):
-    'Create a class containg the information of the card'
-    #the card has a suit which is one of 'S','C','H' or 'D'
-    #the card has a rank 
+    def tableaus(self):
+        disposal=[]
+        self.tableau=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        
+        
+    def play(self):
+        tableau=Solitaire.tableaus.tableau
+        print tableau[0:5]
+        print tableau[5:10]
+        print ' ',tableau[10:13]
+        print ' ',tableau[13:16]
+        card=0
+        print "The top card of the deck is", card
+        take = raw_input('Do you want to put it into tableau?(Y or N):')
+        if take=='Y'or 'y':
+            slot=raw_input('which slot do you want to put it in: ')
+        else:
+            disposal.append(card)
+     
+def main():
+    solitaire = Solitaire()
+    solitaire.play()
+
+
+if __name__ == '__main__':
     
-    def __init__(self, r, s):
-        'Initial the class'
-        #implement
-        #where r is the rank, s is suit
-        self.rank = str(r)
-        self.suit = str(s)
+    main()
 
-    def __str__(self):
-        'Output the string'
-        return 'this is '+ str(self.rank) + str(self.suit)
-
-    def get_rank(self):
-        'Get rank'
-        return self.rank
-
-    def get_suit(self):
-        'Get suit'
-        return self.suit
-
-
-class Deck():
-    """Denote a deck to play cards with"""
-    def __init__(self):
-        """Initialize deck as a list of all 52 cards:
-           13 cards in each of 4 suits"""
-        self.__deck = []
-        for rank in range(2,11):
-            for suit in ['H','C','D','S']:
-                card = Card(rank, suit)
-                self.__deck.append(card)
-        for rank in ['J', 'Q', 'K', 'A']:
-            for suit in ['H', 'C' , 'D' , 'S']:
-                card = Card(rank, suit)
-                self.__deck.append(card)
-
-    def shuffle(self):
-        """Shuffle the deck"""
-        random.shuffle(self.__deck)
-
-    def get_deck(self):
-        'Get deck'
-        return self.__deck
-
-    def deal(self):
-        'Deal the last card in the deck'
-        # get the last card in the deck
-        # simulates a pile of cards and getting the top one
-        return self.__deck[-1]
-
-            
-    def __str__(self):
-        """Represent the whole deck as a string for printing -- very useful during code development"""
-       #the deck is a list of cards
-       #this function just calls str(card) for each card in list
-       # put a '\n' between them
-        output_string = ''
-        output_string += 'deck is listed below: \n'
-        length = len(self.__deck)
-        for card in self.__deck:
-            output_string += str(card.rank) +card.suit + '\n'
-        return output_string
-
-
-##def main():
-##    deck=Deck()
-##    print deck
-##    deck.shuffle()
-##    print deck
-##
-##    x = deck.get_deck()
-##    output_string = ''
-##    output_string += 'deck is listed below: \n'
-##    for card in x:
-##        output_string += str(card.rank) +card.suit 
-##    print output_string
-##    
-##
-##if __name__ =="__main__":
-##    main()
+ 
