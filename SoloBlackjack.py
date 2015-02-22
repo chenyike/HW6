@@ -74,7 +74,6 @@ class BlackJack():
     def __init__(self):
         'initialize BlackJack class'
 
-    
     def get_value(self,card):
         'Get the value of the card'
         
@@ -106,13 +105,14 @@ class BlackJack():
         'Play Solitaire Game'
         BlackJack.initial_display()
         BlackJack.make_a_move()
+        #.........................................
 
 
 
 def main():
     bj_solitaire = BlackJack()
     # display the initial state of the game
-    game.initial_display
+    bj.solitaire.play()
     # shuffle deck
     # deal a card
     # allow user to make a move
