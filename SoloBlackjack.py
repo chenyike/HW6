@@ -55,7 +55,6 @@ class Deck():
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
         return self.__deck[-1]
-
             
     def __str__(self):
         """Represent the whole deck as a string for printing -- very useful during code development"""
@@ -70,19 +69,60 @@ class Deck():
         return output_string
 
 
-##def main():
-##    deck=Deck()
-##    print deck
-##    deck.shuffle()
-##    print deck
-##
-##    x = deck.get_deck()
-##    output_string = ''
-##    output_string += 'deck is listed below: \n'
-##    for card in x:
-##        output_string += str(card.rank) +card.suit 
-##    print output_string
-##    
-##
-##if __name__ =="__main__":
-##    main()
+class BlackJack():
+    'Solitaire game'
+    def __init__(self):
+        'initialize BlackJack class'
+
+    def get_value(self,card):
+        'Get the value of the card'
+        
+    def initial_display(self):
+        'Display the inital state of the game'
+
+    def make_a_move(self):
+        'Allow user to make a move'
+
+    def current_display(self):
+        'Display the current state of the game'
+
+    def score_hand(self):
+        'About to score the hands'
+
+    def score_table(self):
+        'Score the entire table by calling score hand nine times'
+
+    def final_display(self):
+        'display the score of table'
+
+    def highest_score(self):
+        'If the current score is the highest so far, print a nice congrats msg'
+
+    def restart(self):
+        'Choice to restart the game'
+    
+    def play(self):
+        'Play Solitaire Game'
+        BlackJack.initial_display()
+        BlackJack.make_a_move()
+        #.........................................
+
+
+
+def main():
+    bj_solitaire = BlackJack()
+    # display the initial state of the game
+    bj.solitaire.play()
+    # shuffle deck
+    # deal a card
+    # allow user to make a move
+    # display current state of the game
+    # repeat above 3 steps (deal card, place card, display game)
+    # print a msg saying I am about to score the hand, pass table to score function
+    # final msg to display the score of table
+    # highest score display if user breaks the record
+    # restart choice
+    
+
+if __name__ =="__main__":
+    main()
