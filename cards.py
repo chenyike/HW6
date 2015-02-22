@@ -27,20 +27,6 @@ class Deck():
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-<<<<<<< HEAD
-<<<<<<< HEAD
-        self.deck = []
-        for rank in range(2:11):
-            for suit in ['h','c','d','s']:
-                card = Card(rank, suit)
-                self.deck.append(card)
-        for rank in ['j', 'q', 'k', 'a']:
-            for suit in ['h', 'c' , 'd' , 's']:
-                card = Card(rank, suit)
-                self.deck.append(card)               
-=======
-=======
->>>>>>> Ecko
         self.__deck = []
         for rank in range(2,11):
             for suit in ['H','C','D','S']:
@@ -50,10 +36,6 @@ class Deck():
             for suit in ['H', 'C' , 'D' , 'S']:
                 card = Card(rank, suit)
                 self.__deck.append(card)
-<<<<<<< HEAD
->>>>>>> Ecko
-=======
->>>>>>> Ecko
 
     def shuffle(self):
         """Shuffle the deck"""
@@ -65,28 +47,14 @@ class Deck():
     def deal(self):
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-<<<<<<< HEAD
-        return self.deck.pop
-        ###raise NotImplementedError   
-    
-=======
         return self.__deck[-1]
 
             
->>>>>>> Ecko
     def __str__(self):
         """Represent the whole deck as a string for printing -- very useful during code development"""
        #the deck is a list of cards
        #this function just calls str(card) for each card in list
        # put a '\n' between them
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-def main():
-    
-=======
-=======
->>>>>>> Ecko
         output_string = ''
         output_string += 'deck is listed below: \n'
         length = len(self.__deck)
@@ -99,9 +67,6 @@ def main():
     print deck
     deck.shuffle()
     print deck
-<<<<<<< HEAD
->>>>>>> Ecko
-=======
 
     x = deck.get_deck()
     output_string = ''
@@ -110,7 +75,6 @@ def main():
         output_string += str(card.rank) +card.suit 
     print output_string
     
->>>>>>> Ecko
 
 if __name__ =="__main__":
     main()
