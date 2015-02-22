@@ -13,11 +13,14 @@ class Test_BlackJack(unittest.TestCase):
 
 
     # No need to test a function which does nothing but print out stuff
-    def test_initial_display(self):
-        self.bj.initial_display()
+##    def test_initial_display(self):
+##        self.bj.initial_display()
 
-    def test_make_a_move(self):
-        self.bj.make_a_move(self.card)
+##    def test_make_a_move(self):
+##        self.bj.make_a_move(self.card)
+
+    def test_get_value(self):
+        self.bj.get_value(self.card)
     
     
         

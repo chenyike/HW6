@@ -12,6 +12,7 @@ class BlackJack():
 
     def get_value(self,card):
         'Get the value of the card'
+        print card.rank
         
     def initial_display(self):
         'Display the inital state of the game' 
