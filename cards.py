@@ -20,10 +20,6 @@ class Card(object):
 
     def get_rank(self):
         'output rank'
-##        if self.rank.upper()== 'K'  or self.rank.upper() == 'Q' or self.rank.upper() == 'J':
-##            return 10
-##        elif self.rank.upper() == 'A':
-##            return 1
         return self.rank
 
     

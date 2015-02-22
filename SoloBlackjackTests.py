@@ -20,7 +20,8 @@ class Test_BlackJack(unittest.TestCase):
 ##        self.bj.make_a_move(self.card)
 
     def test_get_value(self):
-        self.bj.get_value(self.card)
+        value = self.bj.get_value(self.card)
+        self.assertEqual(value,1)
     
     
         
