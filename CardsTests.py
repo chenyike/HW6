@@ -53,16 +53,19 @@ class Test_cards(unittest.TestCase):
         self.assertFalse(output_initial == output_shuffled)
 
     def test_deal(self):
+        # get the last card from the pile
         get_deck = self.deck.get_deck()
         last_card = get_deck[-1].rank+get_deck[-1].suit
+        # get the card which is dealed
         deal_card = self.deck.deal().rank+self.deck.deal().suit
+        self.assertEqual(last_card,deal_card)
+
 
 
 
         
         
 
-##    def test_get_deck(self):
 
 
     
