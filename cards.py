@@ -16,19 +16,15 @@ class Card(object):
 
     def __str__(self):
         'Output the string'
-        return 'this is '+ str(self.rank) + str(self.suit)
+        return str(self.rank) + str(self.suit)
 
     def get_rank(self):
-        if self.rank.upper()== 'K'  or self.rank.upper() == 'Q' or self.rank.upper() == 'J':
-            return 10
-        elif self.rank.upper() == 'A':
-            return 1
+        'Get rank'
         return self.rank
 
-    
     def get_suit(self):
         'Get suit'
-        return self.suit.upper()
+        return self.suit
 
 
 class Deck():
@@ -36,30 +32,30 @@ class Deck():
     def __init__(self):
         """Initialize deck as a list of all 52 cards:
            13 cards in each of 4 suits"""
-        self.__deck = []
+        self.deck = []
         for rank in range(2,11):
             for suit in ['H','C','D','S']:
                 card = Card(rank, suit)
-                self.__deck.append(card)
+                self.deck.append(card)
         for rank in ['J', 'Q', 'K', 'A']:
             for suit in ['H', 'C' , 'D' , 'S']:
                 card = Card(rank, suit)
-                self.__deck.append(card)
+                self.deck.append(card)
 
     def shuffle(self):
         """Shuffle the deck"""
-        random.shuffle(self.__deck)
+        random.shuffle(self.deck)
 
     def get_deck(self):
         'Get deck'
-        return self.__deck
+        return self.deck
 
     def deal(self):
         'Deal the last card in the deck'
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        p=self.__deck[-1]
-        self.__deck.pop
+        p = self.deck[-1]
+        self.deck.pop()
         return p
 
             
@@ -70,9 +66,25 @@ class Deck():
        # put a '\n' between them
         output_string = ''
         output_string += 'deck is listed below: \n'
-        length = len(self.__deck)
-        for card in self.__deck:
-            output_string += str(card.rank) +card.suit + '\t'
+        length = len(self.deck)
+        for card in self.deck:
+            output_string += str(card.rank) +card.suit + '\n'
         return output_string
 
 
+##def main():
+##    deck=Deck()
+##    print deck
+##    deck.shuffle()
+##    print deck
+##
+##    x = deck.get_deck()
+##    output_string = ''
+##    output_string += 'deck is listed below: \n'
+##    for card in x:
+##        output_string += str(card.rank) +card.suit 
+##    print output_string
+##    
+##
+##if __name__ =="__main__":
+##    main()
