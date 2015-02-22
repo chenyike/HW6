@@ -15,7 +15,7 @@ class BlackJack():
         'Display the inital state of the game'
         self.disposal = []
         self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-        print self.table[0:5]
+        print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
@@ -25,7 +25,7 @@ class BlackJack():
         'Allow user to make a move'
         #print the card
         print "The top card of the deck is", str(card.rank) +card.suit
-        choice = raw_input('Do you want to put it into tableau?(Y or N):')
+        choice = raw_input('Do you want to put it into the table?(Y or N): ')
         if choice in 'Yy':
             slot=raw_input('which slot do you want to put it in: ')
         else:
