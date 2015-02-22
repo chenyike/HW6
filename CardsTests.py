@@ -1,14 +1,14 @@
 #author - Yike Chen and Yejia Li
 
 import unittest
-from cards import *
+from Cards import *
 
 
 class Test_cards(unittest.TestCase):
 
     def setUp(self):
         self.card = Card('A','S')
-        self.deck = Deck()
+
 
     def test_init(self):
         self.assertEqual(self.card.rank,'A')
@@ -22,6 +22,13 @@ class Test_cards(unittest.TestCase):
         suit = Card.get_suit (self.card)
         self.assertEqual(suit,'S')
 
+
+
+class Test_Deck(unittest.TestCase):
+    def setUp(self):
+        self.card = Card('A','S')
+        self.deck = Deck()
+        
     def test_init(self):
         get_deck = self.deck.get_deck()
         #test length 
@@ -59,16 +66,6 @@ class Test_cards(unittest.TestCase):
         # get the card which is dealed
         deal_card = self.deck.deal().rank+self.deck.deal().suit
         self.assertEqual(last_card,deal_card)
-
-
-
-
-        
-        
-
-
-
-    
 
         
 unittest.main()
