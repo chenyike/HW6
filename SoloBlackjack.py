@@ -1,96 +1,80 @@
 #author - Yike Chen and Yejia Li
 
 import random  # needed for shuffling a Deck
-
-class Card(object):
-    'Create a class containg the information of the card'
-    #the card has a suit which is one of 'S','C','H' or 'D'
-    #the card has a rank 
-    
-    def __init__(self, r, s):
-        'Initial the class'
-        #implement
-        #where r is the rank, s is suit
-        self.rank = str(r)
-        self.suit = str(s)
-
-    def __str__(self):
-        'Output the string'
-        return 'this is '+ str(self.rank) + str(self.suit)
-
-    def get_rank(self):
-        'Get rank'
-        return self.rank
-
-    def get_suit(self):
-        'Get suit'
-        return self.suit
-
-
-class Deck():
-    """Denote a deck to play cards with"""
-    def __init__(self):
-        """Initialize deck as a list of all 52 cards:
-           13 cards in each of 4 suits"""
-        self.__deck = []
-        for rank in range(2,11):
-            for suit in ['H','C','D','S']:
-                card = Card(rank, suit)
-                self.__deck.append(card)
-        for rank in ['J', 'Q', 'K', 'A']:
-            for suit in ['H', 'C' , 'D' , 'S']:
-                card = Card(rank, suit)
-                self.__deck.append(card)
-
-    def shuffle(self):
-        """Shuffle the deck"""
-        random.shuffle(self.__deck)
-
-    def get_deck(self):
-        'Get deck'
-        return self.__deck
-
-    def deal(self):
-        'Deal the last card in the deck'
-        # get the last card in the deck
-        # simulates a pile of cards and getting the top one
-        return self.__deck[-1]
-            
-    def __str__(self):
-        """Represent the whole deck as a string for printing -- very useful during code development"""
-       #the deck is a list of cards
-       #this function just calls str(card) for each card in list
-       # put a '\n' between them
-        output_string = ''
-        output_string += 'deck is listed below: \n'
-        length = len(self.__deck)
-        for card in self.__deck:
-            output_string += str(card.rank) +card.suit + '\n'
-        return output_string
-
+from Cards import *
 
 class BlackJack():
     'Solitaire game'
     def __init__(self):
         'initialize BlackJack class'
+        self.disposal = []
+        self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
     def get_value(self,card):
         'Get the value of the card'
+        rank = card.rank
+        if rank in 'JQK':
+            self.value = 10
+        if rank in 'A':
+            self.value = 1
+
+        
         
     def initial_display(self):
-        'Display the inital state of the game'
+        'Display the inital state of the game' 
+        print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
+        print self.table[5:10]
+        print ' ',self.table[10:13]
+        print ' ',self.table[13:16]
 
-    def make_a_move(self):
+
+    def make_a_move(self,card):
         'Allow user to make a move'
+        #print the card
+        print "The top card of the deck is", str(card.rank) +card.suit
+        choice = raw_input('Do you want to put it into the table?(Y or N): ')
+        if choice in 'Yy':
+            slot=input('which slot do you want to put it in: ')
+            self.table[slot-1]=str(card)
+        else:
+            self.disposal.append(card)
+
 
     def current_display(self):
         'Display the current state of the game'
+        print 'The new table looks like this: \n',self.table[0:5]
+        print self.table[5:10]
+        print ' ',self.table[10:13]
+        print ' ',self.table[13:16]
 
-    def score_hand(self):
+
+    def score_hand(self,hand):
         'About to score the hands'
+        self.Sum=0
+        for i in hand:
+            self.Sum += int(i(0))
+        if self.Sum<=10:
+            for i in hand:
+                if '1'== i(1):
+                    self.Sum += 10
+        return Sum
 
+            
     def score_table(self):
         'Score the entire table by calling score hand nine times'
+        score=0
+        self.hand1=self.table[0:5]
+        self.hand2=self.table[5:10]
+        self.hand3=self.table[10:13]
+        self.hand4=self.table[13:16]
+        self.hand5=self.table[1,6]
+        self.hand6=self.table[5,10]
+        self.hand7=self.table[2,7,11,14]
+        self.hand8=self.table[3,8,12,15]
+        self.hand9=self.table[4,9,13,16]
+        hands=[self.hand1,self.hand2,self.hand3,self.hand4,self.hand5,self.hand7,self.hand8,self.hand9]
+        for i in hands:
+            score += score_hand(i)
 
     def final_display(self):
         'display the score of table'
@@ -103,25 +87,39 @@ class BlackJack():
     
     def play(self):
         'Play Solitaire Game'
-        BlackJack.initial_display()
-        BlackJack.make_a_move()
+        # initial display
+        self.initial_display()
+
+        # shuffle deck
+        deck =Deck()
+        deck.shuffle()
+        
+        
+        # repeat above 3 steps (deal card, place card, display game)
+        while len(deck.get_deck())+len(self.disposal)>36:
+            # deal a card
+            card = deck.deal()
+            # allow user to make a move
+            self.make_a_move(card)
+            # display current state of the game
+            self.current_display()
+        
+        # print a msg saying I am about to score the hand, pass table to score function
+
+        # final msg to display the score of table
+        
+        # highest score display if user breaks the record
+        
+        # restart choice
+        
         #.........................................
 
 
 
 def main():
     bj_solitaire = BlackJack()
-    # display the initial state of the game
-    bj.solitaire.play()
-    # shuffle deck
-    # deal a card
-    # allow user to make a move
-    # display current state of the game
-    # repeat above 3 steps (deal card, place card, display game)
-    # print a msg saying I am about to score the hand, pass table to score function
-    # final msg to display the score of table
-    # highest score display if user breaks the record
-    # restart choice
+    bj_solitaire.play()
+
     
 
 if __name__ =="__main__":

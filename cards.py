@@ -16,7 +16,7 @@ class Card(object):
 
     def __str__(self):
         'Output the string'
-        return 'this is '+ str(self.rank) + str(self.suit)
+        return str(self.rank) + str(self.suit)
 
     def get_rank(self):
         'Get rank'
@@ -54,7 +54,9 @@ class Deck():
         'Deal the last card in the deck'
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        return self.__deck[-1]
+        deal_card = self.__deck[-1]
+        self.__deck.pop()
+        return deal_card
 
             
     def __str__(self):
