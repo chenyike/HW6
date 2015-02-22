@@ -14,10 +14,16 @@ class BlackJack():
         'Get the value of the card'
         
     def initial_display(self):
+<<<<<<< HEAD
         'Display the inital state of the game'
 
         print 'The table looks like this, also, numbers on it mark the slots: \n',
         print self.table[0:5]
+=======
+        'Display the inital state of the game' 
+
+        print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
+>>>>>>> origin/master
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
@@ -28,7 +34,11 @@ class BlackJack():
         #print the card
         print "The top card of the deck is", str(card.rank) +card.suit
         choice = raw_input('Do you want to put it into the table?(Y or N): ')
+<<<<<<< HEAD
         if choice in 'Y' or'y':
+=======
+        if choice in 'Yy':
+>>>>>>> origin/master
             slot=input('which slot do you want to put it in: ')
             self.table[slot-1]=str(card)
         else:
@@ -36,7 +46,11 @@ class BlackJack():
 
     def current_display(self):
         'Display the current state of the game'
+<<<<<<< HEAD
         print self.table[0:5]
+=======
+        print 'The new table looks like this: \n',self.table[0:5]
+>>>>>>> origin/master
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
@@ -52,7 +66,10 @@ class BlackJack():
                     self.Sum += 10
         return Sum
             
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     def score_table(self):
         'Score the entire table by calling score hand nine times'
         score=0
@@ -89,6 +106,7 @@ class BlackJack():
         self.initial_display()
 
         # shuffle deck
+<<<<<<< HEAD
         deck.shuffle()
         
         # deal a card
@@ -105,8 +123,20 @@ class BlackJack():
         
 
         # display current state of the game
+=======
+        deck =Deck()
+        deck.shuffle()
+        
+>>>>>>> origin/master
         
         # repeat above 3 steps (deal card, place card, display game)
+        while len(deck.get_deck())+len(self.disposal)>36:
+            # deal a card
+            card = deck.deal()
+            # allow user to make a move
+            self.make_a_move(card)
+            # display current state of the game
+            self.current_display()
         
         # print a msg saying I am about to score the hand, pass table to score function
 

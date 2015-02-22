@@ -20,15 +20,18 @@ class Card(object):
 
     def get_rank(self):
         'Get rank'
+<<<<<<< HEAD
         if self.rank.upper()== 'K'  or self.rank.upper() == 'Q' or self.rank.upper() == 'J':
             return 10
         elif self.rank.upper() == 'A':
             return 1
+=======
+>>>>>>> origin/master
         return self.rank
 
     def get_suit(self):
         'Get suit'
-        return self.suit.upper()
+        return self.suit
 
 
 class Deck():
@@ -58,9 +61,15 @@ class Deck():
         'Deal the last card in the deck'
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
+<<<<<<< HEAD
         p = self.deck[-1]
         self.deck.pop()
         return p
+=======
+        last_card = self.__deck[-1]
+        self.__deck.pop()
+        return last_card
+>>>>>>> origin/master
 
             
     def __str__(self):
@@ -70,12 +79,18 @@ class Deck():
        # put a '\n' between them
         output_string = ''
         output_string += 'deck is listed below: \n'
+<<<<<<< HEAD
         length = len(self.deck)
         for card in self.deck:
+=======
+        length = len(self.__deck)
+        for card in self.__deck:
+>>>>>>> origin/master
             output_string += str(card.rank) +card.suit + '\n'
         return output_string
 
 
+<<<<<<< HEAD
 ##def main():
 ##    deck=Deck()
 ##    print deck
@@ -92,3 +107,6 @@ class Deck():
 ##
 ##if __name__ =="__main__":
 ##    main()
+=======
+
+>>>>>>> origin/master
