@@ -10,8 +10,6 @@ class Test_BlackJack(unittest.TestCase):
     def setUp(self):
         self.bj = BlackJack()
         self.card = Card('A','S')
-        self.choice = 'N'
-        self.disposal = BlackJack.initial_display().disposal
 
 
     # No need to test a function which does nothing but print out stuff
@@ -20,7 +18,6 @@ class Test_BlackJack(unittest.TestCase):
 
     def test_make_a_move(self):
         self.bj.make_a_move(self.card)
-        self.assertEqual(self.disposal[-1],self.card)
     
     
         
