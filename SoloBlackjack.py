@@ -6,16 +6,22 @@ from Cards import *
 class BlackJack():
     'Solitaire game'
     def __init__(self):
-        'initialize BlackJack class'..
+        'initialize BlackJack class'
         self.disposal = []
         self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
     def get_value(self,card):
         'Get the value of the card'
+        rank = card.rank
+        if rank in 'JQK':
+            self.value = 10
+        if rank in 'A':
+            self.value = 1
+
+        
         
     def initial_display(self):
         'Display the inital state of the game' 
-
         print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
@@ -33,12 +39,14 @@ class BlackJack():
         else:
             self.disposal.append(card)
 
+
     def current_display(self):
         'Display the current state of the game'
         print 'The new table looks like this: \n',self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
+
 
     def score_hand(self,hand):
         'About to score the hands'
@@ -50,6 +58,7 @@ class BlackJack():
                 if '1'== i(1):
                     self.Sum += 10
         return Sum
+
             
     def score_table(self):
         'Score the entire table by calling score hand nine times'
