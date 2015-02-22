@@ -1,7 +1,8 @@
 #author - Yike Chen and Yejia Li
 
 import random  # needed for shuffling a Deck
-from Cards import *
+from cards import *
+
 
 class BlackJack():
     'Solitaire game'
@@ -15,7 +16,8 @@ class BlackJack():
         'Display the inital state of the game' 
         self.disposal = []
         self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-        print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
+        print 'The table looks like this, also, numbers on it mark the slots: \n',
+        print self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
@@ -26,13 +28,18 @@ class BlackJack():
         #print the card
         print "The top card of the deck is", str(card.rank) +card.suit
         choice = raw_input('Do you want to put it into the table?(Y or N): ')
-        if choice in 'Yy':
-            slot=raw_input('which slot do you want to put it in: ')
+        if choice in 'Y' or 'y':
+            slot=input('which slot do you want to put it in: ')
+            self.table[slot-1]=str(card)
         else:
             self.disposal.append(card)
 
     def current_display(self):
         'Display the current state of the game'
+        print self.table[0:5]
+        print self.table[5:10]
+        print ' ',self.table[10:13]
+        print ' ',self.table[13:16]
 
     def score_hand(self):
         'About to score the hands'
@@ -55,13 +62,17 @@ class BlackJack():
         self.initial_display()
 
         # shuffle deck
+
         Deck().shuffle()
         
         # deal a card
         card = Deck().deal()
         
-        # allow user to make a move
+        
+##        
+       # allow user to make a move
         self.make_a_move(card)
+        self.current_display()
         
         # display current state of the game
         
