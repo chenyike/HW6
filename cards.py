@@ -47,7 +47,7 @@ class Deck():
     def deal(self):
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        return self.__deck(-1)
+        return self.__deck[-1]
 
             
     def __str__(self):
@@ -67,7 +67,13 @@ def main():
     print deck
     deck.shuffle()
     print deck
-    print deck.deal()
+
+    x = deck.get_deck()
+    output_string = ''
+    output_string += 'deck is listed below: \n'
+    for card in x:
+        output_string += str(card.rank) +card.suit 
+    print output_string
     
 
 if __name__ =="__main__":
