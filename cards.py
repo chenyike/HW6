@@ -16,19 +16,20 @@ class Card(object):
 
     def __str__(self):
         'Output the string'
-        return 'this is '+ str(self.rank) + str(self.suit)
+        return str(self.rank) + str(self.suit)
 
     def get_rank(self):
-        if self.rank.upper()== 'K'  or self.rank.upper() == 'Q' or self.rank.upper() == 'J':
-            return 10
-        elif self.rank.upper() == 'A':
-            return 1
+        'output rank'
+##        if self.rank.upper()== 'K'  or self.rank.upper() == 'Q' or self.rank.upper() == 'J':
+##            return 10
+##        elif self.rank.upper() == 'A':
+##            return 1
         return self.rank
 
     
     def get_suit(self):
         'Get suit'
-        return self.suit.upper()
+        return self.suit
 
 
 class Deck():
@@ -58,9 +59,9 @@ class Deck():
         'Deal the last card in the deck'
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
-        p=self.__deck[-1]
-        self.__deck.pop
-        return p
+        deal_card = self.__deck[-1]
+        self.__deck.pop()
+        return deal_card
 
             
     def __str__(self):
