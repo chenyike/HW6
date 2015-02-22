@@ -54,12 +54,18 @@ class BlackJack():
     def current_display(self):
         'Display the current state of the game'
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
+=======
+>>>>>>> origin/master
         print self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
     def score_hand(self):
