@@ -21,9 +21,9 @@ class BlackJack():
         print ' ',table[13:16]
         
 
-    def make_a_move(self):
+    def make_a_move(self,card):
         'Allow user to make a move'
-        card = 0
+        #print the card
         print "The top card of the deck is", card
         choice = raw_input('Do you want to put it into tableau?(Y or N):')
         if choice in 'Yy':
@@ -55,15 +55,26 @@ class BlackJack():
         BlackJack.initial_display()
 
         # shuffle deck
+        Deck.shuffle()
+        
         # deal a card
+        card = Deck.deal()
+        
         # allow user to make a move
-        BlackJack.make_a_move()
+        BlackJack.make_a_move(card)
+        
         # display current state of the game
+        
         # repeat above 3 steps (deal card, place card, display game)
+        
         # print a msg saying I am about to score the hand, pass table to score function
+
         # final msg to display the score of table
+        
         # highest score display if user breaks the record
+        
         # restart choice
+        
         #.........................................
 
 
