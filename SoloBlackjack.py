@@ -8,14 +8,15 @@ class BlackJack():
     'Solitaire game'
     def __init__(self):
         'initialize BlackJack class'
+        self.disposal = []
+        self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
     def get_value(self,card):
         'Get the value of the card'
         
     def initial_display(self):
         'Display the inital state of the game' 
-        self.disposal = []
-        self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+
         print 'The table looks like this, also, numbers on it mark the slots: \n',
         print self.table[0:5]
         print self.table[5:10]
@@ -66,13 +67,10 @@ class BlackJack():
         Deck().shuffle()
         
         # deal a card
-        card = Deck().deal()
-        
-        
-##        
-       # allow user to make a move
-        self.make_a_move(card)
-        self.current_display()
+        while len(Deck().get_deck())+len(self.disposal)>36:
+            card = Deck().deal()
+            self.make_a_move(card)
+            self.current_display()
         
         # display current state of the game
         
