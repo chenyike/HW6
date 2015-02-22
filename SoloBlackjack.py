@@ -29,7 +29,7 @@ class BlackJack():
         if choice in 'Yy':
             slot=raw_input('which slot do you want to put it in: ')
         else:
-            disposal.append(card)
+            self.disposal.append(card)
 
     def current_display(self):
         'Display the current state of the game'
@@ -56,7 +56,6 @@ class BlackJack():
 
         # shuffle deck
         Deck().shuffle()
- 
         
         # deal a card
         card = Deck().deal()
