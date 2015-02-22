@@ -12,14 +12,14 @@ class BlackJack():
         'Get the value of the card'
         
     def initial_display(self):
-        'Display the inital state of the game'
+        'Display the inital state of the game' 
         self.disposal = []
         self.table = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         print 'The table looks like this, also, numbers on it mark the slots: \n',self.table[0:5]
         print self.table[5:10]
         print ' ',self.table[10:13]
         print ' ',self.table[13:16]
-        
+
 
     def make_a_move(self,card):
         'Allow user to make a move'
