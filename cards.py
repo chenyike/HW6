@@ -11,8 +11,8 @@ class Card(object):
         'Initial the class'
         #implement
         #where r is the rank, s is suit
-        self.rank = str(r)
-        self.suit = str(s)
+        self.rank = r
+        self.suit = s
 
     def __str__(self):
         'Output the string'
