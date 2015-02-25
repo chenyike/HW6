@@ -44,6 +44,7 @@ class BlackJack():
             slot = raw_input('which slot do you want to put it in: ')
         elif choice in 'Nn':
             slot = '-1'
+        print
         return (choice,slot)
 
     def isDisposalFull(self):
@@ -86,7 +87,7 @@ class BlackJack():
         row2= ''
         row3= ' '
         row4= ' '
-        print 'The new table looks like this: \n'
+        print 'The new table looks like this: '
         for card in self.table[0:5]:
             row1 += str(card)+ ' '
         print row1
@@ -98,7 +99,12 @@ class BlackJack():
         print row3
         for card in self.table[13:16]:
             row4 += str(card)+ ' '
-        print row4
+        print row4, '\n'
+
+        print 'The disposal deck looks like this: '
+        for card in self.disposal:
+            print str(card)
+        print
 
     def score_hand(self,hand):
         'About to score the hands'
@@ -113,7 +119,7 @@ class BlackJack():
             for i in range(0,len(hand)):
                 if len(hand[i])==2 and '1'== hand[i][0]:
                     self.Sum += 10
-                if self.Sum>10:
+                if self.Sum>11:
                     break
                 
         if self.Sum<=16:
@@ -135,15 +141,14 @@ class BlackJack():
     def score_table(self):
         'Score the entire table by calling score hand nine times'
         for i in range(0,16):
+            self.table[i]=str(self.table[i])
+            
+        for i in range(0,16):
             rank = self.table[i][0]
             suit = self.table[i][1]
             if rank in 'JQKA':
                 self.table[i] = str(self.get_value(rank))+ suit
-        print self.table[0:5]
-        print self.table[5:10]
-        print ' ',self.table[10:13]
-        print ' ',self.table[13:16]
-            
+        
         self.score=0
         self.hand1=self.table[0:5]
         self.hand2=self.table[5:10]
@@ -165,32 +170,35 @@ class BlackJack():
         print 'Your score is ', self.score_table()
 
 
-    def write_score(self,score):
+    def write_score(self,filename, score):
         'If the current score is the highest so far, print a nice congrats msg'
         #Show them ways to write from a file.
-        fo = open('highScore.txt', 'r+')
-        fo.readlines()
-        fo.write(score)
-        fo.write('\n')
+        fo = open(filename,'a')
+        eachline=str(score)+'\n'
+        fo.write(eachline)
         fo.close
 
-    def highest_score(self,score):
+    def highest_score(self, score):
         scorelist = []
         fo = open('highScore.txt','r')
         for line in fo:
-            scorelist.append(line)
-        print scorelist
-        if score == max(scorelist):
+            if len(line)==2 or len(line)==1:
+                scorelist.append(int(line[0]))
+            else:
+                scorelist.append(int(line[0]+line[1]))
+        if score >= max(scorelist) and max(scorelist)!=0:
             print 'Congratulation! You just break the record!'
+        self.write_score('highScore.txt',score)
         fo.close
 
         
         
     def restart(self):
         'Choice to restart the game'
-        self.restart = raw_input("Do you wnt to restart?(Y or N)? ")
-        if self.restart == "Y" or self.restart == 'y':
-            return self.play()
+        start= raw_input("Do you want to restart?(Y or N)? ")
+        if start == "Y" or start == 'y':
+            self.__init__()
+            self.play()
 
 
     def play(self):
@@ -200,7 +208,9 @@ class BlackJack():
         self.initial_display()
 
         # shuffle deck
+        
         deck = Deck()
+        #print deck
         deck.shuffle()
         
         
@@ -217,11 +227,12 @@ class BlackJack():
             # display current state of the game
             self.current_display()
             
+            
         self.final_display()
         
         
         # highest score display if user breaks the record
-##        self.highest_score(score)
+        self.highest_score(self.score_table())
         
         # restart choice
         self.restart()
@@ -229,7 +240,7 @@ class BlackJack():
 
 def main():
     bj_solitaire = BlackJack()
-##    bj_solitaire.write_score('4')
+    ##    bj_solitaire.write_score('4')
 ##    bj_solitaire.write_score('2')
 ##    bj_solitaire.highest_score('4')
     bj_solitaire.play()
