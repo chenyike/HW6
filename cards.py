@@ -8,24 +8,26 @@ class Card(object):
     #the card has a rank 
     
     def __init__(self, r, s):
-        'Initial the class'
+        '' 'Initial the class'''
         #implement
         #where r is the rank, s is suit
         self.rank = r
         self.suit = s
 
+
     def __str__(self):
-        'Output the string'
+        '''Output the string'''
         return str(self.rank) + str(self.suit)
 
-    def get_rank(self):
-        'output rank'
-        return self.rank
 
-    
+    def get_rank(self):
+        '''output rank'''
+        return self.rank.upper()
+
+
     def get_suit(self):
-        'Get suit'
-        return self.suit
+        '''Get suit'''
+        return self.suit.upper()
 
 
 class Deck():
@@ -43,19 +45,23 @@ class Deck():
                 card = Card(rank, suit)
                 self.__deck.append(card)
 
+
     def shuffle(self):
         """Shuffle the deck"""
         random.shuffle(self.__deck)
 
+
     def get_deck(self):
-        'Get deck'
+        '''Get deck'''
         return self.__deck
 
+
     def deal(self):
-        'Deal the last card in the deck'
+        '''Deal the last card in the deck'''
         # get the last card in the deck
         # simulates a pile of cards and getting the top one
         deal_card = self.__deck[-1]
+        
         self.__deck.pop()
         return deal_card
 
